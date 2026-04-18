@@ -43,16 +43,8 @@
   .photo-placeholder {
     width: 160px;
     height: 200px;
-    border: 1px solid #888;
-    background: #f4f4f4;
-    color: #888;
-    font-size: 0.85em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    object-fit: cover;
     flex-shrink: 0;
-    font-family: Georgia, serif;
   }
   .info p { margin: 0.3em 0; }
   .info .name { font-size: 1.8em; font-weight: bold; }
@@ -91,10 +83,7 @@
 </nav>
 
 <div class="header-block">
-  <div class="photo-placeholder">
-    [ photo ]<br>
-    <span style="font-size: 0.8em;">(replace with<br>profile.jpg)</span>
-  </div>
+  <img src="profile.jpg" alt="Saeyeon Hong" class="photo-placeholder">
   <div class="info">
     <p class="name">Saeyeon Hong (홍세연)</p>
     <p class="affiliation">
@@ -102,7 +91,7 @@
       Ewha Womans University, Seoul, Korea
     </p>
     <p>
-      Email: <a href="mailto:your-email@ewha.ac.kr">saeyeonhong AT ewha.ac.kr</a><br>
+      Email: <a href="mailto:saeyeonhong@ewha.ac.kr">saeyeonhong AT ewha.ac.kr</a><br>
       <a href="cv.html">CV</a> /
       <a href="https://scholar.google.com/">Google Scholar</a> /
       <a href="https://github.com/">GitHub</a>
@@ -113,17 +102,20 @@
 <h2>About</h2>
 <p>
   I am a third-semester M.S. student in AI Convergence at Ewha Womans University, where
-  I am fortunate to be advised by [Advisor Name]. Prior to this, I received my B.S. from
-  [Undergrad University] in [Year]. I also serve as a teaching assistant at the Global
-  Communication Education Office. I am currently applying to Ph.D. programs in the U.S.
-  for Fall 2026.
+  I am fortunate to be advised by Se-Eun Oh. Prior to this, I received my B.S. from
+  Ewha womans University in 2024.
+
+  My research is following work of DeepCoFFEA. 
+
 </p>
 <p>My research interests include:</p>
 <ul>
-  <li><b>Network security &amp; privacy</b> &mdash; Tor, traffic analysis, anonymity systems</li>
-  <li><b>Flow correlation attacks</b> &mdash; ANN-based methods (HNSW, CAGRA) for scalable correlation</li>
-  <li><b>ML for security</b> &mdash; metric learning, deep learning applied to network traffic</li>
-  <li><b>Privacy attacks on generative models</b> &mdash; membership inference on TTS systems</li>
+  <li><b>Network security &amp; privacy</b><br>
+Tor traffic analysis, anonymity systems, flow correlation attacks using ANN-based methods (HNSW, CAGRA)</li>
+  <li><b>Privacy attacks on generative models</b><br>
+Membership inference on TTS systems (2nd author, 1+ year collaboration)</li>
+  <li><b>Differential privacy</b><br>
+Foundational theory and applications to secure ML</li>
 </ul>
 
 <h2>Selected Works</h2>
