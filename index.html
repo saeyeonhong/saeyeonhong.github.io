@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saeyeon Hong</title>
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    max-width: 780px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+    font-size: 17px;
+  }
+  a { color: #0000EE; text-decoration: underline; }
+  a:visited { color: #551A8B; }
+  a:hover { background: #ffffcc; }
+  nav {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+  }
+  nav a { margin-right: 15px; }
+  nav a.active { font-weight: bold; }
+  h1 { font-size: 1.8em; margin-bottom: 0.2em; }
+  h2 {
+    font-size: 1.3em;
+    margin-top: 1.8em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+  }
+  h3 { font-size: 1.05em; margin-top: 1.2em; margin-bottom: 0.3em; }
+  .header-block {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .photo-placeholder {
+    width: 160px;
+    height: 200px;
+    border: 1px solid #888;
+    background: #f4f4f4;
+    color: #888;
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+    font-family: Georgia, serif;
+  }
+  .info p { margin: 0.3em 0; }
+  .info .name { font-size: 1.8em; font-weight: bold; }
+  .affiliation { color: #333; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 0.4em; }
+  .pub {
+    margin-bottom: 1em;
+    padding-left: 20px;
+    text-indent: -20px;
+  }
+  .pub-title { font-weight: bold; }
+  .pub-venue { font-style: italic; }
+  .pub-authors .me { text-decoration: underline; }
+  footer {
+    margin-top: 50px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    color: #666;
+    font-size: 0.85em;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    .header-block { flex-direction: column; }
+    .photo-placeholder { width: 100%; max-width: 200px; height: 220px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="active">home</a>
+  <a href="research.html">publications &amp; projects</a>
+  <a href="blog.html">blog</a>
+  <a href="cv.html">cv</a>
+</nav>
+
+<div class="header-block">
+  <div class="photo-placeholder">
+    [ photo ]<br>
+    <span style="font-size: 0.8em;">(replace with<br>profile.jpg)</span>
+  </div>
+  <div class="info">
+    <p class="name">Saeyeon Hong (홍세연)</p>
+    <p class="affiliation">
+      M.S. Student, Department of Artificial Intelligence<br>
+      Ewha Womans University, Seoul, Korea
+    </p>
+    <p>
+      Email: <a href="mailto:your-email@ewha.ac.kr">saeyeonhong AT ewha.ac.kr</a><br>
+      <a href="cv.html">CV</a> /
+      <a href="https://scholar.google.com/">Google Scholar</a> /
+      <a href="https://github.com/">GitHub</a>
+    </p>
+  </div>
+</div>
+
+<h2>About</h2>
+<p>
+  I am a third-semester M.S. student in AI Convergence at Ewha Womans University, where
+  I am fortunate to be advised by [Advisor Name]. Prior to this, I received my B.S. from
+  [Undergrad University] in [Year]. I also serve as a teaching assistant at the Global
+  Communication Education Office. I am currently applying to Ph.D. programs in the U.S.
+  for Fall 2026.
+</p>
+<p>My research interests include:</p>
+<ul>
+  <li><b>Network security &amp; privacy</b> &mdash; Tor, traffic analysis, anonymity systems</li>
+  <li><b>Flow correlation attacks</b> &mdash; ANN-based methods (HNSW, CAGRA) for scalable correlation</li>
+  <li><b>ML for security</b> &mdash; metric learning, deep learning applied to network traffic</li>
+  <li><b>Privacy attacks on generative models</b> &mdash; membership inference on TTS systems</li>
+</ul>
+
+<h2>Selected Works</h2>
+<p style="font-size: 0.9em; color: #555;">
+  <span class="me" style="text-decoration: underline;">Underlined</span> name indicates
+  my authorship.
+</p>
+
+<div class="pub">
+  <span class="pub-title">[Title of your CISC-S submission]</span><br>
+  <span class="pub-authors"><span class="me">Saeyeon Hong</span>, Co-Author, and Advisor Name.</span><br>
+  <span class="pub-venue">Under submission</span>, 2026.<br>
+  [<a href="#">pdf</a>] [<a href="#">code</a>]
+</div>
+
+<p style="margin-top: 1em;">
+  <a href="research.html">See all publications &amp; projects &rarr;</a>
+</p>
+
+<footer>
+  Last updated: April 2026. &middot; Built with plain HTML, like it's 1999.
+</footer>
+
+</body>
+</html>

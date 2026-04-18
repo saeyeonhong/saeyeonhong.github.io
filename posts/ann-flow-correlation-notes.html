@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes on ANN-based flow correlation &mdash; Saeyeon Hong</title>
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    max-width: 780px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+    font-size: 17px;
+  }
+  a { color: #0000EE; text-decoration: underline; }
+  a:visited { color: #551A8B; }
+  a:hover { background: #ffffcc; }
+  nav.top {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+  }
+  nav.top a { margin-right: 15px; }
+  nav.top a.active { font-weight: bold; }
+  .post-header {
+    margin-bottom: 2em;
+  }
+  .post-header h1 {
+    font-size: 1.9em;
+    margin-bottom: 0.2em;
+    line-height: 1.2;
+  }
+  .post-meta {
+    color: #666;
+    font-variant: small-caps;
+    font-size: 0.95em;
+  }
+  h2 {
+    font-size: 1.25em;
+    margin-top: 1.8em;
+    margin-bottom: 0.4em;
+  }
+  h3 {
+    font-size: 1.08em;
+    margin-top: 1.3em;
+    margin-bottom: 0.3em;
+  }
+  p { margin: 0.8em 0; }
+  blockquote {
+    border-left: 3px solid #888;
+    margin: 1em 0;
+    padding: 0.2em 1em;
+    color: #444;
+    background: #fafafa;
+    font-style: italic;
+  }
+  code {
+    font-family: "Courier New", Courier, monospace;
+    background: #f0f0f0;
+    padding: 1px 5px;
+    font-size: 0.92em;
+  }
+  pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 10px 14px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+  pre code { background: none; padding: 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 0.3em; }
+  hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2em 0;
+  }
+  .post-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5em;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
+    font-size: 0.95em;
+  }
+  .post-nav .prev::before { content: "← "; }
+  .post-nav .next::after { content: " →"; }
+  footer {
+    margin-top: 40px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    color: #666;
+    font-size: 0.85em;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a href="../index.html">home</a>
+  <a href="../research.html">publications &amp; projects</a>
+  <a href="../blog.html" class="active">blog</a>
+  <a href="../cv.html">cv</a>
+</nav>
+
+<article>
+
+<div class="post-header">
+  <h1>Notes on ANN-based flow correlation</h1>
+  <p class="post-meta">
+    April 2026 &middot; Saeyeon Hong &middot; ~X min read
+  </p>
+</div>
+
+<p>
+  <em>(Draft. Starting to collect thoughts here &mdash; will revise as the ACSAC
+  extension comes together.)</em>
+</p>
+
+<p>
+  One of the questions I keep running into is why approximate nearest neighbor
+  methods, which were designed for a very different setting (image retrieval,
+  recommender systems), seem to work surprisingly well &mdash; and surprisingly
+  <em>unevenly</em> &mdash; on Tor flow embeddings. This post is a scratchpad for
+  some of the things I've been noticing.
+</p>
+
+<h2>Background</h2>
+
+<p>
+  [Brief context on flow correlation attacks and DeepCoFFEA-style embeddings. What
+  exactly the index is being asked to do at inference time. How large the corpus
+  is, and why exact search becomes impractical past some point.]
+</p>
+
+<blockquote>
+  [A key quote or observation from a paper worth anchoring the post around &mdash;
+  e.g., something about why graph-based indices were supposed to struggle on
+  high-dimensional data, and what changed.]
+</blockquote>
+
+<h2>HNSW vs. CAGRA: where they diverge</h2>
+
+<p>
+  [Notes on the empirical differences I've observed. HNSW's hierarchical structure
+  behaves predictably on the traffic embeddings, but CAGRA's GPU-native graph seems
+  to handle the tail of the distance distribution differently. Need to pin down
+  whether this is a recall effect or a distance-function effect.]
+</p>
+
+<pre><code># rough shape of the experiment
+# (placeholder &mdash; replace with actual numbers later)
+corpus_size = 1_000_000
+queries    = 10_000
+recall@10  = { "hnsw": ..., "cagra": ... }
+</code></pre>
+
+<h3>Hypothesis</h3>
+
+<ol>
+  <li>Graph-based indices implicitly assume a locally Euclidean manifold.</li>
+  <li>Flow embeddings, trained with a contrastive loss, may violate this near the boundaries between classes.</li>
+  <li>Therefore: the choice of index interacts with the choice of loss function &mdash; which is the motivation for ANN-aware metric learning.</li>
+</ol>
+
+<h2>What this means for scaling</h2>
+
+<p>
+  [If the above is right, then simply swapping in a faster ANN method isn't enough;
+  the embedding model itself has to be trained with the index in mind. This is the
+  direction the ACSAC extension is heading.]
+</p>
+
+<h2>Open questions</h2>
+
+<ul>
+  <li>Is there a principled way to measure &ldquo;index-friendliness&rdquo; of an embedding space before training the index?</li>
+  <li>How robust is any of this to defenses like traffic padding (WTF-PAD, Front)?</li>
+  <li>Does the same story hold for CAGRA on non-traffic data, or is this specific to the way Tor flows look?</li>
+</ul>
+
+<hr>
+
+<p>
+  <em>Thanks to [labmates / advisor] for discussions. Corrections and pointers
+  welcome &mdash; <a href="mailto:your-email@ewha.ac.kr">email me</a>.</em>
+</p>
+
+</article>
+
+<div class="post-nav">
+  <a href="../blog.html" class="prev">All posts</a>
+  <span></span>
+</div>
+
+<footer>
+  Last updated: April 2026.
+</footer>
+
+</body>
+</html>

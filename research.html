@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications &amp; Projects &mdash; Saeyeon Hong</title>
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    max-width: 780px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+    font-size: 17px;
+  }
+  a { color: #0000EE; text-decoration: underline; }
+  a:visited { color: #551A8B; }
+  a:hover { background: #ffffcc; }
+  nav {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+  }
+  nav a { margin-right: 15px; }
+  nav a.active { font-weight: bold; }
+  h1 { font-size: 1.8em; margin-bottom: 0.5em; }
+  h2 {
+    font-size: 1.3em;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #000;
+    padding-bottom: 3px;
+  }
+  h3 {
+    font-size: 1.1em;
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+  }
+  .pub {
+    margin-bottom: 1.2em;
+    padding-left: 25px;
+    text-indent: -25px;
+  }
+  .pub-num {
+    display: inline-block;
+    width: 25px;
+    text-indent: 0;
+    color: #666;
+  }
+  .pub-title { font-weight: bold; }
+  .pub-venue { font-style: italic; }
+  .me { text-decoration: underline; }
+  .project {
+    margin-bottom: 1.8em;
+    padding: 12px 15px;
+    border-left: 3px solid #888;
+    background: #fafafa;
+  }
+  .project h3 { margin-top: 0; }
+  .project .status {
+    font-size: 0.85em;
+    color: #666;
+    font-variant: small-caps;
+    letter-spacing: 0.5px;
+  }
+  .project p { margin: 0.5em 0; }
+  .project .collab {
+    font-size: 0.9em;
+    color: #555;
+    font-style: italic;
+  }
+  footer {
+    margin-top: 50px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    color: #666;
+    font-size: 0.85em;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">home</a>
+  <a href="research.html" class="active">publications &amp; projects</a>
+  <a href="blog.html">blog</a>
+  <a href="cv.html">cv</a>
+</nav>
+
+<h1>Publications &amp; Projects</h1>
+
+<p>
+  A record of my research &mdash; both completed work and projects currently in progress.
+  <span class="me">Underlined</span> name indicates my authorship.
+</p>
+
+<h2>Publications</h2>
+
+<div class="pub">
+  <span class="pub-num">[1]</span>
+  <span class="pub-title">[Title of your CISC-S submission &mdash; the renamed LATTe system]</span><br>
+  <span class="pub-authors"><span class="me">Saeyeon Hong</span>, Co-Author, and Advisor Name.</span><br>
+  <span class="pub-venue">Conference on Information Security and Cryptography (CISC-S)</span>, 2026.
+  Extended version under submission to ACSAC 2026.<br>
+  [<a href="#">pdf</a>] [<a href="#">code</a>] [<a href="#">bibtex</a>]
+</div>
+
+<h2>Ongoing Projects</h2>
+
+<div class="project">
+  <h3>ANN-aware metric learning for Tor flow correlation</h3>
+  <p class="status">&bull; In progress &middot; targeting ACSAC 2026</p>
+  <p class="collab">With [Advisor Name] and collaborators.</p>
+  <p>
+    Extending our CISC-S work on ANN-based flow correlation (HNSW, CAGRA) toward a
+    full system that jointly optimizes the embedding space and the nearest-neighbor
+    index. The goal is to make correlation attacks on Tor scale to
+    realistic-sized traffic corpora while preserving attack accuracy. Builds on
+    the DeepCoFFEA line of work.
+  </p>
+</div>
+
+<div class="project">
+  <h3>Membership inference attacks on text-to-speech models</h3>
+  <p class="status">&bull; In preparation</p>
+  <p class="collab">With [First Author] and [Advisor Name]. Second-author project.</p>
+  <p>
+    Investigating whether modern TTS systems leak information about their training
+    data through membership inference. Of interest both as a privacy concern and
+    as a probe for understanding memorization in generative audio models.
+  </p>
+</div>
+
+<div class="project">
+  <h3>ANN literature review for network-security applications</h3>
+  <p class="status">&bull; Ongoing</p>
+  <p>
+    Surveying ANN methods from top-tier database and systems venues (VLDB, ICDE,
+    SIGMOD) and mapping them to the specific demands of traffic-correlation
+    workloads &mdash; high-dimensional, partially ordered, adversarially robust.
+    A reading list and notes are maintained on my <a href="blog.html">blog</a>.
+  </p>
+</div>
+
+<footer>
+  Last updated: April 2026.
+</footer>
+
+</body>
+</html>
