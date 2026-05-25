@@ -17,3 +17,4 @@ python -m http.server 8000
 - CV preview
 - put figure with abstract for research section 
 - template : jonbarron.info
+- profile pic issue 
