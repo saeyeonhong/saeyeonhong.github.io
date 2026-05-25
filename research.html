@@ -100,49 +100,55 @@
 <h2>Publications</h2>
 
 <div class="pub">
-  <span class="pub-num">[1]</span>
-  <span class="pub-title">[Title of your CISC-S submission &mdash; the renamed LATTe system]</span><br>
-  <span class="pub-authors"><span class="me">Saeyeon Hong</span>, Co-Author, and Advisor Name.</span><br>
-  <span class="pub-venue">Conference on Information Security and Cryptography (CISC-S)</span>, 2026.
-  Extended version under submission to ACSAC 2026.<br>
-  [<a href="#">pdf</a>] [<a href="#">code</a>] [<a href="#">bibtex</a>]
+  <span class="pub-title">Scalable Tor Traffic Correlation Attack via Approximate Nearest Neighbor Search</span><br>
+  <span class="pub-authors"><span class="me">Saeyeon Hong</span>, Hyewon Kim, Saidur Rahman Mohammad, Se Eun Oh</span><br>
+  <span class="pub-venue">CISC-S</span> (in Korean), 2026. 
+  [<a href="resources/Scalable Tor Traffic Correlation Attack.pdf">pdf</a>]<br>
+  <small>State-of-the-art Tor traffic correlation methods like DeepCoFFEA (DCF) rely on direct pairwise comparison, incurring O(n<sup>2</sup>) cost that limits their use at realistic scale. Analyzing the GTT dataset, we estimate an end-to-end adversary must process up to ~196,000 flows per day, and apply CAGRA, a GPU-accelerated approximate nearest neighbor search algorithm, to Tor traffic correlation. Our method preserves or improves detection performance over DCF while substantially cutting runtime and cost, making the attack feasible at real-world scale.</small>
+</div>
+
+<h2>Presentations</h2>
+
+<div class="pub">
+  <span class="pub-title">[LLM Guided Adversarial Feature-to-Executable Malware Generation]</span><br>
+  <span class="pub-authors"><span class="me">Saeyeon Hong</span>, Hyejin Woo, Md Mahmuduzzaman Kamol, Se Eun Oh, Md Saidur Rahman</span><br>
+  <span class="pub-venue">ACSAC</span>, 2025.
+  [<a href="resources/poster.pdf">poster</a>] [<a href="resources/LLM Guided Adversarial Feature-to-Executable.pdf">paper</a>]
 </div>
 
 <h2>Projects</h2>
 
 <div class="project">
-  <h3>ANN-aware metric learning for Tor flow correlation</h3>
-  <p class="status">&bull; In progress &middot; targeting ACSAC 2026</p>
-  <p class="collab">With [Advisor Name] and collaborators.</p>
-  <p>
-    Extending our CISC-S work on ANN-based flow correlation (HNSW, CAGRA) toward a
-    full system that jointly optimizes the embedding space and the nearest-neighbor
-    index. The goal is to make correlation attacks on Tor scale to
-    realistic-sized traffic corpora while preserving attack accuracy. Builds on
-    the DeepCoFFEA line of work.
-  </p>
+  <h3>Scalable Tor Traffic Correlation Attack via Approximate Nearest Neighbor Search</h3>
+  <p class="status">&bull; In progress &middot;</p>
+  <p class="collab">With Se-Eun Oh and collaborators.</p>
+  <ul>
+  <li>Reframed pairwise matching in Tor end-to-end correlation attacks as an approximate nearest neighbor search task</li>
+  <li>Reduced complexity from O(N<sup>2</sup>) to O(N log N) using GPU-accelerated CAGRA and HNSW indexing</li>
+  <li>Analyzed the Genuine Tor Traces dataset to quantify the realistic traffic scale an adversary must handle</li>
+  <li>Proposed a traffic-scale-focused threat model for Tor traffic correlation attacks</li>
+</ul>
 </div>
 
 <div class="project">
-  <h3>Membership inference attacks on text-to-speech models</h3>
-  <p class="status">&bull; In preparation</p>
-  <p class="collab">With [First Author] and [Advisor Name]. Second-author project.</p>
-  <p>
-    Investigating whether modern TTS systems leak information about their training
-    data through membership inference. Of interest both as a privacy concern and
-    as a probe for understanding memorization in generative audio models.
-  </p>
+  <h3>Duration Loss as a privacy proxy in Text-to-Speech Model</h3>
+  <!-- <p class="status">&bull; In preparation</p> -->
+  <p class="collab">With Bona Kim and Se-Eun Oh. Second-author project.</p>
+  <ul>
+  <li>Investigated whether duration prediction loss leaks training membership in TTS models</li>
+  <li>Conducted membership inference attacks using speaker embeddings and alignment-based duration signals</li>
+  <li>Surveyed the evolution of TTS architectures across autoregressive, non-autoregressive, and duration-based models</li>
+</ul>
 </div>
 
 <div class="project">
-  <h3>ANN literature review for network-security applications</h3>
-  <p class="status">&bull; Ongoing</p>
-  <p>
-    Surveying ANN methods from top-tier database and systems venues (VLDB, ICDE,
-    SIGMOD) and mapping them to the specific demands of traffic-correlation
-    workloads &mdash; high-dimensional, partially ordered, adversarially robust.
-    A reading list and notes are maintained on my <a href="blog.html">blog</a>.
-  </p>
+  <h3>KV Cache in AutoPyTorch </h3>
+  <!-- <p class="status">&bull; Ongoing</p> -->
+  <p class="collab">With Difan Deng, AutoML Lab, Leibniz University of Hannover (in Germany) </p>
+  <ul>
+  <li>Implemented key–value caching for self-attention blocks in AutoPyTorch decoders (Transformer, TCN, and LSTM)</li>
+  <li>Performed computational complexity analysis of the caching mechanism, reducing time complexity from O(N<sup>2</sup>) to O(N) for Transformers and from O(2<sup>L</sup>) to O(L) for TCN-based decoders</li>
+</ul>
 </div>
 
 <footer>
